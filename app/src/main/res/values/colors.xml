@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="nutriGreen">#0e8a4a</color>
+    <color name="nutriLightGreen">#73c82c</color>
+    <color name="nutriYellow">#fbc707</color>
+    <color name="nutriOrange">#f47216</color>
+    <color name="nutriRed">#ef3120</color>
+    <color name="colorSurfaceVariant">#E1E2EC</color>
+</resources>

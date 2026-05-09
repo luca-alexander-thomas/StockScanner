@@ -1,0 +1,31 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="Scanner Einstellungen">
+
+        <SwitchPreferenceCompat
+            app:key="auto_create_profile"
+            app:title="Profil automatisch erstellen"
+            app:summary="Erstellt das DataWedge Profil beim App-Start automatisch neu"
+            app:defaultValue="true" />
+
+        <Preference
+            app:key="recreate_profile"
+            app:title="Profil jetzt manuell erstellen"
+            app:summary="Triggert die DataWedge Konfiguration sofort" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Daten">
+        <Preference
+            app:key="clear_history"
+            app:title="Historie löschen"
+            app:summary="Entfernt alle gespeicherten Scans permanent" />
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="App Info">
+        <Preference
+            app:title="Version"
+            app:summary="1.1.0" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

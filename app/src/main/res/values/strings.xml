@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">StockScanner</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="first_fragment_label">Scanner</string>
+    <string name="second_fragment_label">Historie</string>
+    <string name="next">Speichern</string>
+    <string name="previous">Zurück</string>
+
+    <string name="create_datawedge_profile">DataWedge Profil erstellen</string>
+    <string name="scan_barcode">Bitte einen EAN Barcode scannen</string>
+    <string name="history_title">Scan Historie</string>
+    <string name="back_to_scanner">Zurück zum Scanner</string>
+    <string name="product_not_found">Produkt nicht gefunden</string>
+    <string name="ingredients_label">Inhaltsstoffe</string>
+    <string name="nutriments_label">Nährwerte (pro 100g)</string>
+    <string name="clear_history_title">Historie löschen</string>
+    <string name="clear_history_message">Möchten Sie wirklich alle gescannten Produkte aus der Historie entfernen?</string>
+    <string name="delete">Löschen</string>
+    <string name="cancel">Abbrechen</string>
+</resources>

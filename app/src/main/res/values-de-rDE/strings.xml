@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">StockScanner</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="first_fragment_label">Scan Seite</string>
+    <string name="second_fragment_label">zweite Seite</string>
+    <string name="next">Speichern</string>
+    <string name="previous">Zurück</string>
+    <string name="create_datawedge_profile">DataWedge Profil Erstellen</string>
+    <string name="scan_barcode">EAN Barcode scannen</string>
+</resources>
