@@ -17,4 +17,11 @@
     <string name="clear_history_message">Möchten Sie wirklich alle gescannten Produkte aus der Historie entfernen?</string>
     <string name="delete">Löschen</string>
     <string name="cancel">Abbrechen</string>
+
+    <!-- Open Food Facts Helper -->
+    <string name="unknown_product">Unbekanntes Produkt</string>
+    <string name="unknown_brand">Unbekannte Marke</string>
+    <string name="no_category">Keine Kategorie</string>
+    <string name="no_ingredients_info">Keine Angaben zu Inhaltsstoffen.</string>
+    <string name="unknown">unbekannt</string>
 </resources>

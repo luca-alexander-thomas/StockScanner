@@ -9,14 +9,13 @@
         android:id="@+id/FirstFragment"
         android:name="com.lucathomas.stockscanner.FirstFragment"
         android:label="Scanner"
-        tools:layout="@layout/fragment_first">
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-        <action
-            android:id="@+id/action_FirstFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_first" />
+
+    <fragment
+        android:id="@+id/bringFragment"
+        android:name="com.lucathomas.stockscanner.BringFragment"
+        android:label="Bring! Liste"
+        tools:layout="@layout/fragment_bring" />
 
     <fragment
         android:id="@+id/SecondFragment"

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/FirstFragment"
+        android:icon="@drawable/ic_nav_scanner"
+        android:title="Scanner" />
+    <item
+        android:id="@+id/bringFragment"
+        android:icon="@drawable/ic_nav_bring"
+        android:title="Bring!" />
+    <item
+        android:id="@+id/SecondFragment"
+        android:icon="@drawable/ic_nav_history"
+        android:title="Historie" />
+</menu>

@@ -6,12 +6,16 @@ import kotlinx.coroutines.launch
 import org.json.JSONObject
 
 class DataViewModel(application: Application) : AndroidViewModel(application) {
-    
+
     private val repository: DataRepository
     val allData: LiveData<List<Data>>
 
-    private val _currentProduct = MutableLiveData<Product?>()
-    val currentProduct: LiveData<Product?> = _currentProduct
+    private val _currentProduct = MutableLiveData<OFFProduct?>()
+    val currentProduct: LiveData<OFFProduct?> = _currentProduct
+
+    // Fired when a Bring! item was checked off via scanner → BringFragment should refresh
+    private val _bringRefreshTrigger = MutableLiveData<Unit>()
+    val bringRefreshTrigger: LiveData<Unit> = _bringRefreshTrigger
 
     init {
         val dataDao = MainActivity.DataDatabase.getDatabase(application).dataDao()
@@ -19,20 +23,19 @@ class DataViewModel(application: Application) : AndroidViewModel(application) {
         allData = repository.allData.asLiveData()
     }
 
-    fun setProduct(product: Product?) {
+    fun setProduct(product: OFFProduct?) {
         _currentProduct.value = product
-        
-        // Automatisches Speichern in der Historie, wenn ein Produkt gefunden wurde
         if (product != null && product.name.isNotEmpty()) {
             saveToHistory(product)
         }
     }
 
-    /**
-     * Lädt ein Produkt aus der Historie in die Detailansicht
-     */
+    fun triggerBringRefresh() {
+        _bringRefreshTrigger.postValue(Unit)
+    }
+
     fun selectFromHistory(data: Data) {
-        val product = Product(
+        val product = OFFProduct(
             ean = data.ean,
             name = data.name,
             brand = data.brandName,
@@ -49,7 +52,7 @@ class DataViewModel(application: Application) : AndroidViewModel(application) {
         _currentProduct.value = product
     }
 
-    private fun saveToHistory(product: Product) = viewModelScope.launch {
+    private fun saveToHistory(product: OFFProduct) = viewModelScope.launch {
         val entity = Data(
             ean = product.ean,
             name = product.name,

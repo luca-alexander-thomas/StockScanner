@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    id("kotlin-kapt")
+    alias(libs.plugins.google.devtools.ksp)
 }
 
 android {
@@ -49,7 +49,7 @@ dependencies {
     implementation(libs.androidx.preference.ktx)
     implementation(libs.volley)
     implementation(libs.glide)
-    kapt(libs.glide.compiler)
+    ksp(libs.glide.ksp)
     implementation(libs.kotlin.stdlib)
     
     // Lifecycle components
@@ -59,13 +59,13 @@ dependencies {
     // Room Database
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
-    kapt(libs.room.compiler)
+    ksp(libs.room.compiler)
+
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-}
 
-kapt {
-    correctErrorTypes = true
+
 }

@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//mnt/c/Users/Luca/AndroidStudioProjects/**)",
+      "Bash(./gradlew assembleDebug)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:miaucl.github.io)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "PowerShell(gh api *)",
+      "Bash(curl -s https://raw.githubusercontent.com/foxriver76/node-bring-api/master/src/index.js)",
+      "Bash(curl -s https://raw.githubusercontent.com/miaucl/bring-api/main/bring_api/bring.py)"
+    ]
+  }
+}

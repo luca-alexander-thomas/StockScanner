@@ -1,5 +1,26 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <PreferenceCategory app:title="Bring! Integration">
+        <SwitchPreferenceCompat
+            app:key="bring_enabled"
+            app:title="Bring! Integration aktivieren"
+            app:summary="Ermöglicht das Scannen von Artikeln für die Einkaufsliste"
+            app:defaultValue="false" />
+        <EditTextPreference
+            app:key="bring_email"
+            app:title="Bring! E-Mail"
+            app:dependency="bring_enabled" />
+        <EditTextPreference
+            app:key="bring_password"
+            app:title="Bring! Passwort"
+            app:dependency="bring_enabled" />
+        <ListPreference
+            app:key="bring_list_id"
+            app:title="Einkaufsliste auswählen"
+            app:summary="Wählen Sie die Liste, die Sie bearbeiten möchten"
+            app:dependency="bring_enabled" />
+    </PreferenceCategory>
+
     <PreferenceCategory app:title="Scanner Einstellungen">
 
         <SwitchPreferenceCompat

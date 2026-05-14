@@ -8,7 +8,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.google.android.material.chip.Chip
 import com.lucathomas.stockscanner.databinding.FragmentFirstBinding
@@ -31,10 +30,6 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonHistory.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        }
-
         viewModel.currentProduct.observe(viewLifecycleOwner) { product ->
             if (product != null) {
                 updateUI(product)
@@ -44,21 +39,17 @@ class FirstFragment : Fragment() {
         }
     }
 
-    private fun updateUI(product: Product) {
+    private fun updateUI(product: OFFProduct) {
         binding.tvName.text = product.name
         binding.tvBrandName.text = product.brand
         binding.tvCategory.text = product.category
         binding.tvIngredients.text = product.ingredients
 
-        // Scores & Groups
         updateNutriScoreUI(product.nutriScore)
         updateNovaGroupUI(product.novaGroup)
         updateEcoScoreUI(product.ecoScore)
-
-        // Additives
         updateAdditivesUI(product.additives)
 
-        // Allergens
         if (product.allergens.isNotEmpty()) {
             binding.labelAllergens.isVisible = true
             binding.tvAllergens.isVisible = true
@@ -100,7 +91,7 @@ class FirstFragment : Fragment() {
         if (!hasScore) return
 
         val colors = mapOf(
-            "a" to listOf(R.color.white, R.color.nutriLightGreen, R.color.nutriYellow, R.color.nutriOrange, R.color.nutriRed),
+            "a" to listOf(R.color.white, R.color.nutriYellow, R.color.nutriYellow, R.color.nutriOrange, R.color.nutriRed),
             "b" to listOf(R.color.nutriGreen, R.color.white, R.color.nutriYellow, R.color.nutriOrange, R.color.nutriRed),
             "c" to listOf(R.color.nutriGreen, R.color.nutriLightGreen, R.color.white, R.color.nutriOrange, R.color.nutriRed),
             "d" to listOf(R.color.nutriGreen, R.color.nutriLightGreen, R.color.nutriYellow, R.color.white, R.color.nutriRed),
@@ -118,7 +109,7 @@ class FirstFragment : Fragment() {
         val hasNova = novaGroup.isNotEmpty() && novaGroup != "unknown"
         binding.cardNovaGroup.isVisible = hasNova
         if (!hasNova) return
-        
+
         binding.tvNovaValue.text = novaGroup
         val color = when (novaGroup) {
             "1" -> R.color.nutriGreen
@@ -135,7 +126,7 @@ class FirstFragment : Fragment() {
         val hasEco = score.isNotEmpty() && score != "unknown"
         binding.cardEcoScore.isVisible = hasEco
         if (!hasEco) return
-        
+
         binding.tvEcoScoreValue.text = score.uppercase()
         val color = when (score) {
             "a" -> R.color.nutriGreen
@@ -154,7 +145,7 @@ class FirstFragment : Fragment() {
         val hasAdditives = list.isNotEmpty()
         binding.labelAdditives.isVisible = hasAdditives
         binding.chipGroupAdditives.isVisible = hasAdditives
-        
+
         list.forEach { additive ->
             val chip = Chip(requireContext()).apply {
                 text = additive.trim().uppercase()
@@ -170,7 +161,7 @@ class FirstFragment : Fragment() {
         val keys = nutriments.keys()
         val sortedKeys = mutableListOf<String>()
         while (keys.hasNext()) sortedKeys.add(keys.next())
-        
+
         sortedKeys.filter { it.endsWith("_100g") }.sortedBy { it }.forEach { key ->
             val value = nutriments.optString(key, "")
             if (value.isNotEmpty() && value != "null") {
